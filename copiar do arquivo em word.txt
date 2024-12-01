@@ -1,0 +1,38 @@
+Se você tem um script SQL e quer automatizar o processo de transferência dele para um arquivo Word, você pode usar Python com a biblioteca python-docx. Aqui está um exemplo de como você pode fazer isso:
+
+1° Passo: 
+pip install python-docx
+
+2° Passo: Crie um script Python para ler seu arquivo SQL e criar um arquivo Word com ele:
+
+from docx import Document
+
+# Caminho do seu arquivo SQL
+sql_file_path = r'C:\Users\bruno\Desktop\03_CARGA_MENSAGEM\seu_script.sql'
+
+# Lê o conteúdo do arquivo SQL
+with open(sql_file_path, 'r') as sql_file:
+    sql_script = sql_file.read()
+
+# Cria um novo documento do Word
+doc = Document()
+
+# Adiciona um título ao documento (opcional)
+doc.add_heading('Script SQL', 0)
+
+# Adiciona o conteúdo do script SQL
+doc.add_paragraph(sql_script)
+
+# Salva o documento em um arquivo .docx
+doc.save(r'C:\Users\bruno\Desktop\03_CARGA_MENSAGEM\script_sql.docx')
+
+print('O script foi salvo em script_sql.docx')
+
+
+Como funciona o código:
+Caminho do arquivo SQL: Usei o caminho completo do arquivo SQL em sql_file_path. Para garantir que o Python entenda o caminho corretamente, usei o prefixo r antes da string para tratar a barra invertida (\) como parte do caminho, evitando erros de escape.
+Salvando o arquivo Word: O caminho do arquivo Word onde o script será salvo é o mesmo diretório do script SQL. Alterei a extensão para .docx.
+Ele lê o conteúdo do arquivo SQL e cria um novo documento Word.
+O conteúdo do script SQL é adicionado como parágrafo dentro do documento.
+O documento é salvo com o nome "script_sql.docx".
+Após rodar esse script, você terá um arquivo Word com o conteúdo do seu script SQL.

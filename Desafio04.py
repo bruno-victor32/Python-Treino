@@ -1,0 +1,6 @@
+n1 = input('Digite um valor:')
+print(type(n1))
+print('O valor digitado', n1, 'e inteiro = ', n1.isnumeric())
+print('O valor digitado', n1, 'e letra = ', n1.isalpha())
+print('O valor digitado', n1, 'e alfanumerico ou letra = ', n1.isalnum())
+print('O valor digitado', n1, 'tem todas letras maiusculas = ', n1.isupper())
